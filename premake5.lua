@@ -1,13 +1,14 @@
-project "ImGui"
+﻿project "ImGui"
 	kind "StaticLib"
 	language "C++"
     staticruntime "off"
+    warnings "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 	
-	--defines { "IMGUI_API=__declspec(dllexport)" }
-	linkoptions { "/WHOLEARCHIVE:ImGui" }
+	defines { "IMGUI_API=__declspec(dllexport)" }
+	--linkoptions { "/WHOLEARCHIVE:ImGui" }
 
 	files
 	{
