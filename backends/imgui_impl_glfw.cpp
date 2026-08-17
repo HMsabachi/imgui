@@ -716,7 +716,8 @@ static void ImGui_ImplGlfw_UpdateMouseData()
 #if GLFW_HAS_MOUSE_PASSTHROUGH || (GLFW_HAS_WINDOW_HOVERED && defined(_WIN32))
         const bool window_no_input = (viewport->Flags & ImGuiViewportFlags_NoInputs) != 0;
 #if GLFW_HAS_MOUSE_PASSTHROUGH
-        glfwSetWindowAttrib(window, GLFW_MOUSE_PASSTHROUGH, window_no_input);
+        // TODO NODE: Linster PrismEngine has error in GLFW 3.3.8, so we disable this for now. See
+        //glfwSetWindowAttrib(window, GLFW_MOUSE_PASSTHROUGH, window_no_input);
 #endif
         if (glfwGetWindowAttrib(window, GLFW_HOVERED) && !window_no_input)
             mouse_viewport_id = viewport->ID;
